@@ -2,6 +2,7 @@
   "name": "dubai-here",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "dependencies": {
     "@arcgis/core": "~4.32.0",
     "@arcgis/map-components": "~4.32.0",
@@ -59,7 +60,8 @@
     "format": "prettier --write .",
     "start": "next start",
     "prepare": "husky",
-    "commit": "pnpm exec lint-staged && pnpm exec git-cz",
+    "lint-staged": "lint-staged",
+    "commit": "lint-staged && git-cz",
     "release": "pnpm exec release-please release-pr",
     "release:manifest": "pnpm exec release-please manifest-pr"
   },
