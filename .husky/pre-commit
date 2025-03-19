@@ -10,4 +10,4 @@ if [ "$HUSKY_GIT_PARAMS" = "--no-verify" ]; then
 fi
 
 # Run lint-staged before commit
-pnpm exec lint-staged --concurrent false
+pnpm run lint-staged --concurrent false
