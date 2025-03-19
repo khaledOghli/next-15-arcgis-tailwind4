@@ -69,6 +69,9 @@ importers:
       '@commitlint/cz-commitlint':
         specifier: ^19.8.0
         version: 19.8.0(@types/node@20.17.24)(commitizen@4.3.1(@types/node@20.17.24)(typescript@5.8.2))(inquirer@9.3.7)(typescript@5.8.2)
+      '@commitlint/prompt-cli':
+        specifier: ^19.8.0
+        version: 19.8.0(@types/node@20.17.24)(typescript@5.8.2)
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.3.0
@@ -229,6 +232,15 @@ packages:
 
   '@commitlint/parse@19.8.0':
     resolution: {integrity: sha512-YNIKAc4EXvNeAvyeEnzgvm1VyAe0/b3Wax7pjJSwXuhqIQ1/t2hD3OYRXb6D5/GffIvaX82RbjD+nWtMZCLL7Q==}
+    engines: {node: '>=v18'}
+
+  '@commitlint/prompt-cli@19.8.0':
+    resolution: {integrity: sha512-7SHDakdWO2ROO3FRyeQTugHZ7GTGdh3dGIs3gVVgf2LmekzIUIv2nstHaPIGDuI+FDmo961zRK31gGMc2RjxTw==}
+    engines: {node: '>=v18'}
+    hasBin: true
+
+  '@commitlint/prompt@19.8.0':
+    resolution: {integrity: sha512-WO6L4D2uK4kqoRBsK7TFdawfYP7Eu1tFut/LmCKKvc4fi9mpT+RHEQtvIVTENMYKU1O8CA3mz9jKD863KyzVfg==}
     engines: {node: '>=v18'}
 
   '@commitlint/read@19.8.0':
@@ -3850,6 +3862,26 @@ snapshots:
       '@commitlint/types': 19.8.0
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
+
+  '@commitlint/prompt-cli@19.8.0(@types/node@20.17.24)(typescript@5.8.2)':
+    dependencies:
+      '@commitlint/prompt': 19.8.0(@types/node@20.17.24)(typescript@5.8.2)
+      inquirer: 9.3.7
+      tinyexec: 0.3.2
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
+
+  '@commitlint/prompt@19.8.0(@types/node@20.17.24)(typescript@5.8.2)':
+    dependencies:
+      '@commitlint/ensure': 19.8.0
+      '@commitlint/load': 19.8.0(@types/node@20.17.24)(typescript@5.8.2)
+      '@commitlint/types': 19.8.0
+      chalk: 5.4.1
+      inquirer: 9.3.7
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
 
   '@commitlint/read@19.8.0':
     dependencies:
