@@ -22,5 +22,13 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "nuxt.isNuxtApp": false
+  "nuxt.isNuxtApp": false,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "html",
+    "typescriptreact": "html"
+  },
+  "tailwindCSS.emmetCompletions": false,
+  "tailwindCSS.hovers": false,
+  "tailwindCSS.codeActions": false,
+  "tailwindCSS.suggestInHeadlessMode": false
 }

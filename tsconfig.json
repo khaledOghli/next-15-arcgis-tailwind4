@@ -38,5 +38,5 @@
     "src/types/arcgis-web-components.d.ts"
   ],
   "typeRoots": ["@typings", "node_modules", "node_modules/@types", "./src/types"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", "build"]
 }

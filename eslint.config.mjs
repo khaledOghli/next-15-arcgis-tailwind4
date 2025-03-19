@@ -104,6 +104,7 @@ const eslintConfig = [
       'jsx-a11y/no-static-element-interactions': 'warn',
       'jsx-a11y/no-autofocus': 'warn',
     },
+    ignorePatterns: ['node_modules', 'dist', 'build'],
   }),
 ];
 

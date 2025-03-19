@@ -1,23 +1,31 @@
-# commit_msg_pattern="^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}$"
-
-# validate_commit_msg() {
-#   red='\033[0;31m'
-#   green='\033[0;32m'
-#   blue='\033[0;34m'
-#   no_color='\033[0m'
-#   echo " ${red} - Invalid commit message. Your commit message should follow this pattern: ${green}type(scope): subject"
-#   echo " ${red} - 'type' is one of the following: ${blue} [feat, fix, docs, style, refactor, test, chore]"
-#   echo " ${red} - 'scope' is optional and can be anything specifying the place of the commit change"
-#   echo " ${red} - 'subject' is a brief description of the change, try to keep it under 50 characters${no_color}"
-# }
-
-# if ! npx --no-install commitlint --edit "$1"; then
-#   validate_commit_msg
-#   exit 1  # Exit with a non-zero status code to prevent the commit
-# fi
-
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Validate commit message using commitlint
-pnpm exec commitlint --edit "$1"
+# Define allowed commit types
+commit_msg_pattern="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,72}$"
+
+validate_commit_msg() {
+  red='\033[0;31m'
+  green='\033[0;32m'
+  blue='\033[0;34m'
+  yellow='\033[0;33m'
+  no_color='\033[0m'
+
+  echo ""
+  echo " ${red}❌ Invalid commit message! Please follow the format:${no_color}"
+  echo ""
+  echo "   ${green}<type>(<scope>): <subject>${no_color}"
+  echo ""
+  echo "   Example: ${blue}feat(auth): add login functionality${no_color}"
+  echo ""
+  echo " ${yellow}⚠ Allowed types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert${no_color}"
+  echo " ${yellow}⚠ 'scope' is optional and describes the area of change (e.g., 'auth', 'dashboard')${no_color}"
+  echo " ${yellow}⚠ 'subject' should be a short description (max 72 chars)${no_color}"
+  echo ""
+}
+
+# Run commitlint to validate commit message
+if ! pnpm exec commitlint --edit "$1"; then
+  validate_commit_msg
+  exit 1  # Prevents commit if the message is invalid
+fi

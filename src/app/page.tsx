@@ -11,7 +11,7 @@ export default function Home() {
         {/* <MapView /> */}
 
         <ModeToggle />
-        <h1 className='text-center text-4xl font-bold sm:text-left'>Welcome to Next</h1>
+        <h1 className='text-center text-4xl font-bold sm:text-left'>Welcome to Next Bilorplate </h1>
       </main>
       <footer className='row-start-3 flex flex-wrap items-center justify-center gap-[24px]'>
         <a
