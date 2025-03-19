@@ -1,3 +1,13 @@
 # Lint staged files
-pnpm run lint-staged --concurrent false
-# run tests
+# pnpm run lint-staged --concurrent false
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Check if commit is using --no-verify (bypass flag)
+if [ "$HUSKY_GIT_PARAMS" = "--no-verify" ]; then
+  echo "❌ Pre-commit hook blocked: Cannot use --no-verify!"
+  exit 1
+fi
+
+# Run lint-staged before commit
+pnpm exec lint-staged --concurrent false
