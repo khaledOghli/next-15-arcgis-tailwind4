@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 # Define allowed commit types
 commit_msg_pattern="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,72}$"
@@ -11,21 +10,29 @@ validate_commit_msg() {
   yellow='\033[0;33m'
   no_color='\033[0m'
 
-  echo ""
-  echo " ${red}❌ Invalid commit message! Please follow the format:${no_color}"
-  echo ""
-  echo "   ${green}<type>(<scope>): <subject>${no_color}"
-  echo ""
-  echo "   Example: ${blue}feat(auth): add login functionality${no_color}"
-  echo ""
-  echo " ${yellow}⚠ Allowed types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert${no_color}"
-  echo " ${yellow}⚠ 'scope' is optional and describes the area of change (e.g., 'auth', 'dashboard')${no_color}"
-  echo " ${yellow}⚠ 'subject' should be a short description (max 72 chars)${no_color}"
-  echo ""
+  echo "" >&2
+  echo " ${red}❌ COMMIT REJECTED 🚨 ${no_color}" >&2
+  echo "🔴 Invalid commit message! Please follow the format:" >&2
+  echo "" >&2
+  echo "   ${green}<type>(<scope>): <subject>${no_color}" >&2
+  echo "" >&2
+  echo "   Example: ${blue}feat(auth): add login functionality${no_color}" >&2
+  echo "" >&2
+  echo " ${yellow}⚠ Allowed types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert${no_color}" >&2
+  echo " ${yellow}⚠ 'scope' is optional and describes the area of change (e.g., 'auth', 'dashboard')${no_color}" >&2
+  echo " ${yellow}⚠ 'subject' should be a short description (max 72 chars)${no_color}" >&2
+  echo "" >&2
 }
 
-# Run commitlint to validate commit message
-if ! pnpm exec commitlint --edit "$1"; then
-  validate_commit_msg
-  exit 1  # Prevents commit if the message is invalid
+# Run commitlint and capture the output
+output=$(pnpm exec commitlint --edit "$1" 2>&1)
+
+if [ $? -ne 0 ]; then
+  echo "" >&2
+  echo "❌ COMMIT REJECTED 🚨" >&2
+  echo "$output" >&2  # Force commitlint output to appear in VS Code UI
+  validate_commit_msg  # Show custom error message in UI
+  exit 1  # Block commit
 fi
+
+echo "✅ Commit message format is valid! 🎉"

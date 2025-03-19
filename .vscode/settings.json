@@ -1,4 +1,6 @@
 {
+  "git.terminalGitEditor": true,
+  "git.verboseCommit": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,

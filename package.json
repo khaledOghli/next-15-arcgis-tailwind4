@@ -61,7 +61,7 @@
     "format": "prettier --write .",
     "start": "next start",
     "prepare": "husky",
-    "lint-staged": "lint-staged",
+    "lint-staged": "lint-staged --verbose",
     "commit": "lint-staged && git-cz",
     "release": "pnpm exec release-please release-pr",
     "release:manifest": "pnpm exec release-please manifest-pr"

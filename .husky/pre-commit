@@ -1,13 +1,27 @@
-# Lint staged files
-# pnpm run lint-staged --concurrent false
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-# Check if commit is using --no-verify (bypass flag)
+echo "🚀 Running pre-commit checks..."
+
+# Prevent using --no-verify to bypass hooks
 if [ "$HUSKY_GIT_PARAMS" = "--no-verify" ]; then
-  echo "❌ Pre-commit hook blocked: Cannot use --no-verify!"
+  echo "❌ ERROR: Skipping Husky hooks is not allowed!" >&2
   exit 1
 fi
 
-# Run lint-staged before commit
-pnpm run lint-staged --concurrent false
+# Ensure there are staged files before running lint-staged
+if git diff --cached --quiet; then
+  echo "⚠️ No staged files found. Skipping lint-staged checks." >&2
+  exit 0  # Allow commit but skip Husky checks
+fi
+
+# Run lint-staged with explicit error logging
+if ! pnpm run lint-staged; then
+  echo ""
+  echo "❌ PRE-COMMIT FAILED 🚨" >&2
+  echo "🔴 Linting or formatting issues detected!" >&2
+  echo "🛠️ Run: pnpm run lint:fix to fix the issues." >&2
+  echo "📖 Need help? Check errors in the terminal." >&2
+  exit 1  # Block commit
+fi
+
+echo "✅ Pre-commit checks passed! 🎉"
