@@ -1,0 +1,170 @@
+:root {
+  /* Brand Colors (Custom) */
+  --calcite-color-brand: #624bff;
+  --calcite-color-brand-hover: #4a38cc;
+  --calcite-color-brand-press: #372999;
+  --calcite-color-brand-underline: rgba(98, 75, 255, 0.3);
+
+  /* Background Colors */
+  --calcite-color-background: #f7f9fc;
+  --calcite-color-foreground-1: #ffffff;
+  --calcite-color-foreground-2: #f0f4f8;
+  --calcite-color-foreground-3: var(--background);
+
+  /* Text Colors */
+  --calcite-color-text-1: #2b2b2b;
+  --calcite-color-text-2: #4a4a4a;
+  --calcite-color-text-3: #7a7a7a;
+
+  /* Border and Input Colors */
+  --calcite-color-border-1: #d4dce5;
+  --calcite-color-border-input: #a6b4c5;
+
+  /* Shadows for subtle elevation */
+  --calcite-shadow-sm: 0 4px 10px rgba(45, 54, 65, 0.08);
+  --calcite-shadow-md: 0 6px 16px rgba(45, 54, 65, 0.12);
+
+  /* Corner radius for smooth rounded elements */
+  --calcite-corner-radius-round: 6px;
+  --calcite-corner-radius-pill: 100px;
+
+  /* Font customization */
+  --calcite-font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --calcite-font-size: 15px;
+  --calcite-font-weight-regular: 400;
+  --calcite-font-weight-medium: 500;
+  --calcite-font-weight-semibold: 600;
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+:root {
+  /* Global defaults (common for both themes) */
+  --calcite-input-prefix-size: 40px;
+  --calcite-input-suffix-size: 40px;
+  --calcite-input-actions-background-color: transparent;
+  --calcite-input-loading-fill-color: #64748b;
+
+  /* Light Theme (default) */
+  --calcite-input-background-color: #ffffff;
+  --calcite-input-border-color: #cbd5e1;
+  --calcite-input-corner-radius: 8px;
+  --calcite-input-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+
+  /* Text and Icons */
+  --calcite-input-text-color: #334155;
+  --calcite-input-placeholder-text-color: #94a3b8;
+  --calcite-input-icon-color: #64748b;
+
+  --calcite-input-actions-background-color-hover: #f1f5f9;
+  --calcite-input-actions-background-color-press: #e2e8f0;
+
+  --calcite-input-actions-icon-color: #64748b;
+  --calcite-input-actions-icon-color-hover: #475569;
+  --calcite-input-actions-icon-color-press: #334155;
+
+  --calcite-input-loading-background-color: #f1f5f9;
+
+  --calcite-input-prefix-background-color: #f8fafc;
+  --calcite-input-prefix-text-color: #64748b;
+
+  --calcite-input-suffix-background-color: #f8fafc;
+  --calcite-input-suffix-text-color: #64748b;
+
+  /* Autocomplete variables (inherit from input) */
+  --calcite-autocomplete-input-prefix-size: var(--calcite-input-prefix-size);
+  --calcite-autocomplete-input-suffix-size: var(--calcite-input-suffix-size);
+  --calcite-autocomplete-input-background-color: var(--calcite-input-background-color);
+  --calcite-autocomplete-input-border-color: var(--calcite-input-border-color);
+  --calcite-autocomplete-input-corner-radius: var(--calcite-input-corner-radius);
+  --calcite-autocomplete-input-shadow: var(--calcite-input-shadow);
+  --calcite-autocomplete-input-icon-color: var(--calcite-input-icon-color);
+  --calcite-autocomplete-input-text-color: var(--calcite-input-text-color);
+  --calcite-autocomplete-input-placeholder-text-color: var(--calcite-input-placeholder-text-color);
+  --calcite-autocomplete-input-actions-background-color: var(
+    --calcite-input-actions-background-color
+  );
+  --calcite-autocomplete-input-actions-background-color-hover: var(
+    --calcite-input-actions-background-color-hover
+  );
+  --calcite-autocomplete-input-actions-background-color-press: var(
+    --calcite-input-actions-background-color-press
+  );
+  --calcite-autocomplete-input-actions-icon-color: var(--calcite-input-actions-icon-color);
+  --calcite-autocomplete-input-actions-icon-color-hover: var(
+    --calcite-input-actions-icon-color-hover
+  );
+  --calcite-autocomplete-input-actions-icon-color-press: var(
+    --calcite-input-actions-icon-color-press
+  );
+  --calcite-autocomplete-input-loading-background-color: var(
+    --calcite-input-loading-background-color
+  );
+  --calcite-autocomplete-input-loading-fill-color: var(--calcite-input-loading-fill-color);
+  --calcite-autocomplete-input-prefix-background-color: var(
+    --calcite-input-prefix-background-color
+  );
+  --calcite-autocomplete-input-prefix-text-color: var(--calcite-input-prefix-text-color);
+  --calcite-autocomplete-input-suffix-background-color: var(
+    --calcite-input-suffix-background-color
+  );
+  --calcite-autocomplete-input-suffix-text-color: var(--calcite-input-suffix-text-color);
+  --calcite-autocomplete-background-color: var(--calcite-input-background-color);
+  --calcite-autocomplete-text-color: var(--calcite-input-text-color);
+  --calcite-autocomplete-heading-text-color: var(--calcite-input-placeholder-text-color);
+}
+
+/* Dark Theme Overrides */
+.dark {
+  --calcite-input-background-color: #1e293b;
+  --calcite-input-border-color: #334155;
+  --calcite-input-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
+  --calcite-input-text-color: #e2e8f0;
+  --calcite-input-placeholder-text-color: #64748b;
+  --calcite-input-icon-color: #94a3b8;
+
+  --calcite-input-actions-background-color-hover: #334155;
+  --calcite-input-actions-background-color-press: #475569;
+
+  --calcite-input-actions-icon-color: #94a3b8;
+  --calcite-input-actions-icon-color-hover: #cbd5e1;
+  --calcite-input-actions-icon-color-press: #ffffff;
+
+  --calcite-input-loading-background-color: #334155;
+
+  --calcite-input-prefix-background-color: #0f172a;
+  --calcite-input-prefix-text-color: #94a3b8;
+
+  --calcite-input-suffix-background-color: #0f172a;
+  --calcite-input-suffix-text-color: #94a3b8;
+  --calcite-autocomplete-background-color: #1e293b;
+  --calcite-autocomplete-text-color: #e2e8f0;
+  --calcite-autocomplete-heading-text-color: #64748b;
+}
+.esri-widget--button:not([appearance]),
+.esri-widget--button[appearance='solid'] {
+  --calcite-color-foreground-3: var(--background);
+  border-radius: var(--calcite-corner-radius-round);
+}
+.esri-component.esri-search {
+  border-radius: var(--calcite-corner-radius-round);
+  background-color: transparent;
+}
+
+.esri-widget.esri-widget--panel {
+  background-color: var(--calcite-color-background);
+  border-radius: var(--calcite-corner-radius-round);
+  box-shadow: var(--calcite-shadow-md);
+}
+.esri-widget {
+  border-radius: var(--calcite-corner-radius-round);
+}
+.dark .esri-widget.esri-widget--panel {
+  background-color: var(--calcite-input-background-color);
+}

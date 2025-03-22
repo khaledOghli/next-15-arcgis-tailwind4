@@ -1,8 +1,9 @@
-import Providers from '@/providers/providers';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/react';
+
+import Providers from '@/providers/providers';
 import '../styles/globals.css';
 
 // import {  Open_Sans } from "next/font/google";
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${openSans.variable} antialiased`}>
         <NextTopLoader showSpinner={false} />
         <NuqsAdapter>

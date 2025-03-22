@@ -74,7 +74,8 @@
     "prepare": "husky",
     "lint-staged": "lint-staged --verbose",
     "commit": "lint-staged && git-cz",
-    "build:arcgis-assets": "node src/scripts/copy-arcgis-assets.mjs"
+    "copy:arcgis-assets": "node src/scripts/copy-arcgis-assets.mjs",
+    "copy:calcite-assets": "node src/scripts/copy-calcite-assets.mjs"
   },
   "config": {
     "commitizen": {
