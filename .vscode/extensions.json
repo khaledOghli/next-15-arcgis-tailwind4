@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "PKief.material-icon-theme", // Material Icon Theme
+    "esbenp.prettier-vscode", // Prettier
+    "dbaeumer.vscode-eslint", // ESLint
+    "bradlc.vscode-tailwindcss", // Tailwind IntelliSense
+    "eamodio.gitlens", // GitLens (optional but great)
+    "csstools.postcss", // PostCSS support
+    "stylelint.vscode-stylelint" // Stylelint (if using)
+  ]
+}
