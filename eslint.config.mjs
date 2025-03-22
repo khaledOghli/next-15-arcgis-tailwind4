@@ -81,7 +81,22 @@ const eslintConfig = [
       eqeqeq: ['error', 'always'],
       curly: ['error', 'multi-line'],
       'consistent-return': 'error',
-
+      'no-restricted-syntax': [
+        'warn',
+        {
+          selector: 'Literal[value=/^\\d+$/]',
+          message: 'Avoid hardcoded numbers. Use a named constant or enum instead.',
+        },
+      ],
+      'no-magic-numbers': [
+        'warn',
+        {
+          ignore: [0, 1, -1],
+          ignoreArrayIndexes: true,
+          enforceConst: true,
+          detectObjects: false,
+        },
+      ],
       /** ✅ Import & Module Rules */
       'import/order': [
         'error',
