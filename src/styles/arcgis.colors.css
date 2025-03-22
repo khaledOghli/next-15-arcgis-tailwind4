@@ -117,6 +117,23 @@
   --calcite-autocomplete-background-color: var(--calcite-input-background-color);
   --calcite-autocomplete-text-color: var(--calcite-input-text-color);
   --calcite-autocomplete-heading-text-color: var(--calcite-input-placeholder-text-color);
+
+  --calcite-flow-background-color: var(--calcite-color-background);
+  --calcite-flow-border-color: var(--calcite-color-border-1);
+  --calcite-flow-corner-radius: var(--calcite-corner-radius-round);
+  --calcite-flow-description-text-color: var(--calcite-color-text-3);
+  --calcite-flow-footer-background-color: var(--calcite-color-background);
+  --calcite-flow-footer-space: var(--calcite-panel-space);
+  --calcite-flow-header-action-background-color-hover: var(--calcite-color-brand-hover);
+  --calcite-flow-header-action-background-color-press: var(--calcite-color-brand-press);
+  --calcite-flow-header-action-background-color: var(--calcite-color-brand);
+  --calcite-flow-header-action-indicator-color: var(--calcite-color-foreground-1);
+  --calcite-flow-header-action-text-color-press: var(--calcite-color-foreground-1);
+  --calcite-flow-header-action-text-color: var(--calcite-color-foreground-1);
+  --calcite-flow-header-background-color: var(--calcite-color-background);
+  --calcite-flow-header-content-space: var(--calcite-panel-space);
+  --calcite-flow-heading-text-color: var(--calcite-color-text-1);
+  --calcite-flow-space: var(--calcite-panel-space);
 }
 
 /* Dark Theme Overrides */
