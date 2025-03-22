@@ -1,5 +1,7 @@
 # 🚀 ArcGIS + Next.js 15 + React 19 + Tailwind CSS 4 + ShadCN Starter Kit
 
+<img width="608" alt="Screenshot 2025-03-23 at 12 00 16 AM" src="https://github.com/user-attachments/assets/323e2677-f05c-466e-ba31-5546525b7507" />
+
 A modern, scalable, and opinionated starter kit for building web mapping apps using:
 
 - **Next.js 15 App Router**
