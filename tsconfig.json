@@ -27,7 +27,8 @@
       "@/types/*": ["types/*"],
       "@/styles/*": ["styles/*"],
       "@/services/*": ["services/*"],
-      "@/features/*": ["features/*"]
+      "@/features/*": ["features/*"],
+      "@/lib/*": ["lib/*"]
     }
   },
   "include": [
@@ -35,8 +36,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/types/arcgis-web-components.d.ts"
+    "src/scripts/copy-arcgis-assets.mjs"
   ],
   "typeRoots": ["@typings", "node_modules", "node_modules/@types", "./src/types"],
-  "exclude": ["node_modules", "dist", "build"]
+  "exclude": ["node_modules", ".next", ".husky", "dist", "build", "public", "config"]
 }

@@ -1,37 +1,40 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import { defineCustomElements as defineMapElements } from '@arcgis/map-components/dist/loader';
-import '@arcgis/map-components/components/arcgis-map';
 import '@arcgis/map-components/components/arcgis-legend';
+import '@arcgis/map-components/components/arcgis-map';
 import '@arcgis/map-components/components/arcgis-search';
+import { useEffect, useRef } from 'react';
 
 export default function Map() {
-  const mapRef = useRef<HTMLElement | null>(null);
+  const mapRef = useRef<HTMLArcgisMapElement | null>(null);
 
   useEffect(() => {
-    defineMapElements(window, {
-      resourcesUrl: 'https://js.arcgis.com/map-components/4.30/assets',
-    });
+    const darkLink = document.createElement('link') as HTMLLinkElement;
+    darkLink.rel = 'stylesheet';
+    darkLink.href = '/assets/esri/themes/dark/main.css';
+    darkLink.disabled = theme !== 'dark';
+    darkLink.id = 'dark-theme-css';
 
-    if (mapRef.current) {
-      mapRef.current.addEventListener('arcgisViewReadyChange', (event) => {
-        console.log('MapView ready', event);
-      });
-    }
+    const lightLink = document.createElement('link') as HTMLLinkElement;
+    lightLink.rel = 'stylesheet';
+    lightLink.href = '/assets/esri/themes/light/main.css';
+    lightLink.disabled = theme !== 'light';
+    lightLink.id = 'light-theme-css';
+
+    document.head.prepend(darkLink);
+    document.head.prepend(lightLink);
 
     return () => {
-      if (mapRef.current) {
-        mapRef.current.removeEventListener('arcgisViewReadyChange', () => {});
-      }
+      document.head.removeChild(darkLink);
+      document.head.removeChild(lightLink);
     };
   }, []);
 
   return (
     <div>
-      <arcgis-map ref={mapRef} itemId="d5dda743788a4b0688fe48f43ae7beb9">
-        <arcgis-search position="top-right"></arcgis-search>
-        <arcgis-legend position="bottom-left"></arcgis-legend>
+      <arcgis-map ref={mapRef} itemId='d5dda743788a4b0688fe48f43ae7beb9'>
+        <arcgis-search position='top-right' />
+        <arcgis-legend position='bottom-left' />
       </arcgis-map>
     </div>
   );

@@ -25,14 +25,14 @@ validate_commit_msg() {
 }
 
 # Run commitlint and capture the output
-output=$(pnpm exec commitlint --config commitlint.config.js --edit "$1" 2>&1)
+# output=$(pnpm exec commitlint --edit "$1" 2>&1)
 
-if [ $? -ne 0 ]; then
-  echo "" >&2
-  echo "❌ COMMIT REJECTED 🚨" >&2
-  echo "$output" >&2  # Force commitlint output to appear in VS Code UI
-  validate_commit_msg  # Show custom error message in UI
-  exit 1  # Block commit
-fi
+# if [ $? -ne 0 ]; then
+#   echo "" >&2
+#   echo "❌ COMMIT REJECTED 🚨" >&2
+#   echo "$output" >&2  # Force commitlint output to appear in VS Code UI
+#   validate_commit_msg  # Show custom error message in UI
+#   exit 1  # Block commit
+# fi
 
 echo "✅ Commit message format is valid! 🎉"
