@@ -1,7 +1,7 @@
 {
-  "name": "dubai-here",
+  "name": "nextjs-arcgis-app",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "dependencies": {
     "@arcgis/core": "~4.32.9",

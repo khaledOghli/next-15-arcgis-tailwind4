@@ -150,4 +150,12 @@ PRs are welcome! Please follow commit conventions and test before submitting.
 
 ## 📄 License
 
-MIT
+MIT License. Feel free to fork, contribute, and improve!
+
+---
+
+## Author
+
+👤 **Khaled Oghli** Frontend Engineer | Dubai Municipality
+
+- LinkedIn: [Khaled Oghli](https://www.linkedin.com/in/khaledoghli/)
