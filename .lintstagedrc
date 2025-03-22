@@ -4,5 +4,7 @@
   "*.md": ["prettier --write"],
   "*.scss": ["prettier --write"],
   "*.yaml": ["prettier --write"],
-  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write", "tsc --noEmit"]
+  "*.{js,jsx}": ["eslint --fix", "prettier --write"],
+  "*.{ts,tsx}": ["eslint --fix", "prettier --write", "tsc --noEmit --skipLibCheck"],
+  "public/**/*": "echo 'public folder is not allowed to commit' && exit 1"
 }

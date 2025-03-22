@@ -5,6 +5,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const isBuild = process.env.ESLINT_ENV === 'build';
 
 const compat = new FlatCompat({
   // import.meta.dirname is available after Node.js v20.11.0
@@ -12,6 +13,9 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: ['public/**', 'node_modules/**', '.next/**', 'dist/**', 'build/**', 'config/**'],
+  },
   ...compat.config({
     extends: [
       'next/core-web-vitals', // ✅ Enforces best practices for Next.js
@@ -28,7 +32,7 @@ const eslintConfig = [
     rules: {
       /** ✅ Formatting & Style Rules (Prettier) */
       semi: ['error', 'always'],
-      quotes: ['error', 'single'],
+      quotes: ['error', 'single', { avoidEscape: true }],
       'no-multiple-empty-lines': [
         'error',
         {
@@ -40,13 +44,12 @@ const eslintConfig = [
       /** ✅ TypeScript Best Practices */
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-function-return-type': 'warn',
+      '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-inferrable-types': 'error',
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/prefer-as-const': 'error',
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
-
       /** ✅ React Best Practices */
       'react/jsx-no-duplicate-props': 'error',
       'react/jsx-key': 'error',
@@ -70,8 +73,8 @@ const eslintConfig = [
       '@next/next/no-sync-scripts': 'error',
 
       /** ✅ Security & Performance */
-      'no-console': ['warn', { allow: ['warn', 'error'] }], // ❌ Block console.log but allow warnings/errors
-      'no-debugger': 'error',
+      'no-console': 'off',
+      'no-debugger': 'off',
       'no-alert': 'error',
       'no-eval': 'error',
       'no-implied-eval': 'error',
@@ -99,12 +102,18 @@ const eslintConfig = [
       ],
       /** ✅ Accessibility (A11y) */
       'jsx-a11y/alt-text': 'error',
-      'jsx-a11y/anchor-is-valid': 'warn',
+      'jsx-a11y/anchor-is-valid': 'off',
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
       'jsx-a11y/no-autofocus': 'warn',
+
+      ...(isBuild && {
+        'no-console': ['error', { allow: ['warn', 'error'] }],
+        'no-debugger': 'error',
+        'jsx-a11y/anchor-is-valid': 'error',
+      }),
     },
-    ignorePatterns: ['node_modules', 'dist', 'build'],
+    ignorePatterns: ['node_modules', 'dist', 'build', '.next', 'public', 'config'],
   }),
 ];
 

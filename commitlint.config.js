@@ -6,7 +6,7 @@ const FOOTER_MAX_LINE_LENGTH = 100;
 const RULE_LEVEL_ERROR = 2;
 const RULE_LEVEL_WARNING = 1;
 
-export default {
+const commitlintConfig = {
   parserPreset: 'conventional-changelog-conventionalcommits',
   extends: ['@commitlint/config-conventional', '@commitlint/cz-commitlint'],
   rules: {
@@ -141,3 +141,5 @@ export default {
     },
   },
 };
+
+export default commitlintConfig;

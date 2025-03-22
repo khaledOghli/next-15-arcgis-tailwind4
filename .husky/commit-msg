@@ -25,7 +25,7 @@ validate_commit_msg() {
 }
 
 # Run commitlint and capture the output
-output=$(pnpm exec commitlint --edit "$1" 2>&1)
+output=$(pnpm exec commitlint --config commitlint.config.js --edit "$1" 2>&1)
 
 if [ $? -ne 0 ]; then
   echo "" >&2

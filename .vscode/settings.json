@@ -32,5 +32,11 @@
   "tailwindCSS.emmetCompletions": false,
   "tailwindCSS.hovers": false,
   "tailwindCSS.codeActions": false,
-  "tailwindCSS.suggestInHeadlessMode": false
+  "tailwindCSS.suggestInHeadlessMode": false,
+  "html.customData": [
+    "./node_modules/@esri/calcite-components/dist/docs/vscode.html-custom-data.json"
+  ],
+  "css.customData": [
+    "./node_modules/@esri/calcite-components/dist/docs/vscode.css-custom-data.json"
+  ]
 }
