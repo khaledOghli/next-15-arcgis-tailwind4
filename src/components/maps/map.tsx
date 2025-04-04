@@ -47,7 +47,7 @@ export default function Map() {
     }
   }, [theme]);
   return (
-    <div className='flex h-full w-full'>
+    <div className='flex h-full w-full overflow-hidden rounded-b-md'>
       <arcgis-map ref={mapRef} itemId='d5dda743788a4b0688fe48f43ae7beb9'>
         <arcgis-search position='top-right' />
         <arcgis-legend position='bottom-left' />
