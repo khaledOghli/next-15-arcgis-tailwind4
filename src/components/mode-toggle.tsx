@@ -5,10 +5,12 @@ import { useState } from 'react';
 import { MapLayersDrawer } from '@/components/map-layers-drawer';
 import { Button } from '@/components/ui/button';
 import { ViewModeToggle } from '@/components/view-mode-toggle';
+import { useCounterStore } from '@/providers/map-store-provider';
 
 export default function ModeToggle() {
   const [viewMode, setViewMode] = useState<'2D' | '3D'>('2D');
   const [open, setOpen] = useState(false);
+  const { count, incrementCount, decrementCount } = useCounterStore((state) => state);
 
   return (
     <>
@@ -17,6 +19,7 @@ export default function ModeToggle() {
       <div className='relative flex-1'>
         {/* 3D-2D Toggle - moved to left side */}
         <div className='absolute top-4 left-4 z-10'>
+          {count}
           <ViewModeToggle value={viewMode} onChange={setViewMode} />
           <Button
             variant='outline'

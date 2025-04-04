@@ -1,12 +1,22 @@
 'use client';
-import { ThemeProvider } from '@/providers/theme-provider';
 import React from 'react';
+
+import { CounterStoreProvider } from '@/providers/map-store-provider';
+import { ThemeProvider } from '@/providers/theme-provider';
+
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-        {children}
-      </ThemeProvider>
+      <CounterStoreProvider>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </CounterStoreProvider>
     </>
   );
 }

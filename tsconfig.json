@@ -28,7 +28,8 @@
       "@/styles/*": ["styles/*"],
       "@/services/*": ["services/*"],
       "@/features/*": ["features/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/stores/*": ["stores/*"]
     }
   },
   "include": [

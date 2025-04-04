@@ -200,13 +200,13 @@ export function MapLayersDrawer({ open, onOpenChange }: MapLayersDrawerProps) {
   };
 
   return (
-    <div className='relative inset-0 z-50 h-full w-full'>
-      {/* Drawer content */}
+    // <div className='relative inset-0 z-50 h-full w-full'>
+    <>
       <AnimatePresence onExitComplete={() => setIsVisible(false)}>
         {open && (
           <motion.div
             key='drawer-content'
-            className='pointer-events-auto absolute end-4 top-4 bottom-4 h-full max-h-[calc(100%-2rem)] w-[350px] max-w-[calc(100%-2rem)]'
+            className='max-h-[calc(100% - 2rem)] pointer-events-auto absolute end-4 top-4 bottom-4 z-50 h-auto w-[350px] max-w-[calc(100%-2rem)]'
             initial='hidden'
             animate='visible'
             exit='exit'
@@ -398,7 +398,7 @@ export function MapLayersDrawer({ open, onOpenChange }: MapLayersDrawerProps) {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
 
